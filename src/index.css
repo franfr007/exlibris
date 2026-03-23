@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #faf7f2;
+  color: #3a2f1f;
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f0e8;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4c4a0;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #bfa878;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #e8dcc8 25%, #f5f0e8 50%, #e8dcc8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* Efecto de portada de libro */
+.book-cover {
+  box-shadow: 
+    2px 3px 8px rgba(0,0,0,0.15),
+    inset -1px 0 3px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.book-cover:hover {
+  transform: scale(1.05) rotateY(-3deg);
+  box-shadow: 
+    5px 6px 16px rgba(0,0,0,0.2),
+    inset -1px 0 3px rgba(0,0,0,0.08);
+}
+
+/* Scanner overlay */
+.scanner-region {
+  border: 3px solid #a68b55;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.scanner-region video {
+  border-radius: 6px;
+}
+
+/* Toast */
+.toast-enter {
+  animation: slideUp 0.3s ease-out;
+}
